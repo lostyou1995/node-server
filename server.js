@@ -2,7 +2,7 @@ var express = require("express");
 const bodyParser = require('body-parser')
 var cors = require('cors');
 // Define route
-var postRoute = require("./apps/routes/post.router");
+var producrRoute = require("./apps/routes/product.router");
 var app = express();
 
 // Connect to mongo db
@@ -13,6 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/api/posts", postRoute);
+app.use("/api/product", producrRoute);
 
 app.listen(6969);

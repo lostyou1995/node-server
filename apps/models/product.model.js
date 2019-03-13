@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-var post = new mongoose.Schema({
+var product = new mongoose.Schema({
     price: Number,
     name: String,
     image: String,
@@ -7,5 +7,5 @@ var post = new mongoose.Schema({
     status: Boolean
 });
 
-var Post = mongoose.model("Post", post, "post");
-module.exports = Post;
+var Product = mongoose.model("Product", product, "product");
+module.exports = Product;
