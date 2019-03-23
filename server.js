@@ -5,6 +5,7 @@ var cors = require('cors');
 var producrRoute = require("./apps/routes/product.router");
 var accountRoute = require("./apps/routes/account.router");
 var loginRoute = require("./apps/routes/auth.router");
+var validateAccount = require("./apps/validations/account.validate");
 var app = express();
 
 // Connect to mongo db
