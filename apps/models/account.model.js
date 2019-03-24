@@ -4,7 +4,8 @@ var account = new mongoose.Schema({
     password: String,
     address: String,
     age: Number,
-    gender: Boolean
+    gender: String,
+    email: String
 });
 
 var Account = mongoose.model("Account", account, "account");
