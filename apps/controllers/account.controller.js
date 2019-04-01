@@ -1,13 +1,10 @@
 var Account = require("../models/account.model");
 var md5 = require("md5");
-const ERROR_CODE = {
-    EXIST: 1
-};
 
 module.exports.create = async function(req, res) {
     var hashPassword = md5(req.body.password);
     var username = req.body.username;
-    var account = await Account.findOne({username: username},function(err, result) {
+    var account = await Account.findOne({username: username}, function(err, result) {
         account = result;
     });
 
@@ -17,6 +14,19 @@ module.exports.create = async function(req, res) {
         account = await Account.create(req.body);
         res.json(account);
     } else {
-        res.json(ERROR_CODE.EXIST);
+        res.json(false);
     }
 };
+
+module.exports.isExistUsername = async function (req, res) {
+    var username = req.params.username;
+    var isExist = false;
+
+    await Account.findOne({username: username}, function(err, res) {
+        if (res) {
+            isExist = true;
+        }
+    });
+
+    return res.json(isExist);
+}
